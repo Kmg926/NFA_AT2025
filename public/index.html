@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>NFA</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo" onclick="showSection('products')">NFA</div>
+    <ul class="menu">
+      <li><a href="#" onclick="showSection('products')">에셋 목록</a></li>
+      <li><a href="#" onclick="showSection('mypage')">마이페이지</a></li>
+      <li><a href="#" id="login-menu" onclick="showSection('login')">로그인</a></li>
+    </ul>
+  </nav>
+
+  <div id="content">
+
+    <!-- 로그인/회원가입 섹션 -->
+    <section id="login" class="section hidden">
+      <div class="wrapper">
+        <!-- 로그인 -->
+        <div class="form-wrapper sign-in">
+          <form onsubmit="handleLogin(); return false;">
+            <h2><br>&nbsp;&nbsp;로그인</h2>
+            <div class="input-group">
+              <input type="text" required>
+              <label>아이디</label>
+            </div>
+            <div class="input-group">
+              <input type="password" required>
+              <label>비밀번호</label>
+            </div>
+            <div class="remember">
+              <label><input type="checkbox"> ID 저장하기</label>
+            </div>
+            <button type="submit">로그인</button>
+            <div class="signUp-link">
+              <p>계정이 없으신가요? <a href="#" class="signUpBtn-link">회원가입</a></p>
+            </div>
+            <p id="login-result"></p>
+          </form>
+        </div>
+        <!-- 회원가입 -->
+        <div class="form-wrapper sign-up">
+          <form onsubmit="handleSignup(); return false;">
+            <h2>&nbsp;&nbsp;회원가입</h2>
+            <div class="input-group">
+              <input type="text" required>
+              <label>아이디</label>
+            </div>
+            <div class="input-group">
+              <input type="password" required>
+              <label>비밀번호</label>
+            </div>
+            <div class="remember">
+              <label><input type="checkbox"> 약관 동의</label>
+            </div>
+            <button type="submit">회원가입</button>
+            <div class="signUp-link">
+              <p>이미 계정이 있으신가요? <a href="#" class="signInBtn-link">로그인</a></p>
+            </div>
+            <p id="signup-result"></p> <!-- ✅ 추가 -->
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- 마이페이지 -->
+    <section id="mypage" class="section hidden">
+      <h2>마이페이지</h2>
+      <div id="user-info"></div>
+      <h3>나의 에셋</h3>
+      <ul id="my-products"></ul>
+    </section>
+
+    <!-- 에셋 목록 -->
+    <section id="products" class="section">
+      <h2>에셋 목록</h2>
+      <p style="font-size: 14px; color: #ccc; margin-top: -24px; margin-bottom: 32px;">클릭하여 자세히 볼 수 있습니다.</p>
+      <ul id="product-list"></ul>
+    </section>
+
+
+  <script src="script.js"></script>
+</body>
+</html>
