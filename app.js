@@ -5,7 +5,7 @@ const sqlite3 = require('sqlite3').verbose();
 const bodyParser = require('body-parser');
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT
 
 const db = new sqlite3.Database('./db/users.db');
 
